@@ -26,8 +26,13 @@ namespace EncryptTool
                     encrypt_input = RSAHelper.Encrypt(input_text);
                 }
 
-                txtOutput.Text = encrypt_input;
-                Clipboard.SetText(encrypt_input);
+                if (!string.IsNullOrEmpty(encrypt_input))
+                {
+                    txtOutput.Text = encrypt_input;
+                    Clipboard.SetText(encrypt_input);
+                }
+                else
+                    txtOutput.Text = "Invalid Data";
             }
             else
             {
@@ -51,8 +56,13 @@ namespace EncryptTool
                     encrypt_input = RSAHelper.Decrypt(input_text);
                 }
 
-                txtOutput.Text = encrypt_input;
-                Clipboard.SetText(encrypt_input);
+                if (!string.IsNullOrEmpty(encrypt_input))
+                {
+                    txtOutput.Text = encrypt_input;
+                    Clipboard.SetText(encrypt_input);
+                }
+                else
+                    txtOutput.Text = "Invalid Data";
             }
             else
             {
