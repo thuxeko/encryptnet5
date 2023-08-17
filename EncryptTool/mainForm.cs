@@ -12,6 +12,7 @@ namespace EncryptTool
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
+            AesCipher aesCipher = new AesCipher();
             if (!string.IsNullOrEmpty(txtInput.Text))
             {
                 var input_text = txtInput.Text;
@@ -19,7 +20,8 @@ namespace EncryptTool
                 if (rbAES.Checked)
                 {
                     var passphrase = txtPassphrase.Text;
-                    encrypt_input = AESHelper.Encrypt(input_text, passphrase.Trim());
+                    //encrypt_input = AESHelper.Encrypt(input_text, passphrase.Trim());
+                    encrypt_input = aesCipher.Encrypt(input_text, passphrase);
                 }
                 else if (rbRSA.Checked)
                 {
@@ -42,14 +44,17 @@ namespace EncryptTool
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
+            AesCipher aesCipher = new AesCipher();
             if (!string.IsNullOrEmpty(txtInput.Text))
             {
                 var input_text = txtInput.Text;
                 var encrypt_input = string.Empty;
                 if (rbAES.Checked)
                 {
+                    
                     var passphrase = txtPassphrase.Text;
-                    encrypt_input = AESHelper.Decrypt(input_text, passphrase.Trim());
+                    //encrypt_input = AESHelper.Decrypt(input_text, passphrase.Trim());
+                    encrypt_input = aesCipher.Decrypt(input_text, passphrase);
                 }
                 else if (rbRSA.Checked)
                 {

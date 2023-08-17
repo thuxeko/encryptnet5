@@ -9,7 +9,7 @@ namespace EncryptTool
 {
     public static class AESHelper
     {
-        private const string aesDefaultKey = "YOUR DEFAULT PASSPHRASE";
+        private const string aesDefaultKey = "YOURDEFAULTPASSPHRASE";
         public static string Encrypt(string data, string key = null)
         {
             if (string.IsNullOrEmpty(key))
